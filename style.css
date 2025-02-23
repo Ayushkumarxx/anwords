@@ -258,4 +258,14 @@ main .meaning {
   main .meaning {
     font-size: 15px;
   }
+
+  .uubox .box-1 .dark {
+    font-size: 14px;
+  }
+  .uubox .box-1 .light {
+    font-size: 14px;
+  }
+  .uubox .box-1 .head {
+    font-size: 18px;
+  }
 }
