@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lexend", sans-serif;
+}
+:root {
+  --color-neutral-50: oklch(0.985 0 0);
+  --color-neutral-100: oklch(0.97 0 0);
+  --color-neutral-200: oklch(0.922 0 0);
+  --color-neutral-300: oklch(0.87 0 0);
+  --color-neutral-400: oklch(0.708 0 0);
+  --color-neutral-500: oklch(0.556 0 0);
+  --color-neutral-600: oklch(0.439 0 0);
+  --color-neutral-700: oklch(0.371 0 0);
+  --color-neutral-800: oklch(0.269 0 0);
+  --color-neutral-900: oklch(0.205 0 0);
+  --color-neutral-950: oklch(0.145 0 0);
+}
+
+body {
+  height: 110vh;
+  background-color: #0a0a0a;
+  opacity: 0.8;
+  background-size: 10px 10px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #101010 0,
+    #101010 1px,
+    #0a0a0a 0,
+    #0a0a0a 50%
+  );
+}
+nav {
+  max-width: 950px;
+  margin: auto;
+  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .head {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  padding: 12px;
+  border: 1px dashed #6a6a6a;
+  border-radius: 8px;
+}
+nav .border {
+  width: 50%;
+
+  border-top: 1px dashed #6a6a6a;
+}
+nav .creator {
+  display: flex;
+  gap: 30px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 12px;
+  border: 1px dashed #6a6a6a;
+  border-radius: 8px;
+}
+
+main {
+  max-width: 750px;
+  padding: 50px 10px;
+  margin: auto;
+  display: none;
+}
+
+main .someinfo {
+  font-size: 16px;
+  color: var(--color-neutral-100);
+}
+main .someinfo .arrow {
+  margin: 0 10px;
+}
+
+main .word {
+  margin-top: 10px;
+  font-size: 38px;
+  font-weight: bold;
+  color: #fff;
+}
+
+main .meaning {
+  margin-top: 8px;
+  font-size: 16px;
+  color: var(--color-neutral-300);
+}
+
+.someButton {
+  margin-top: 10px;
+  display: flex;
+  gap: 12px;
+}
+.someButton button {
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-neutral-800);
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.someButton button a {
+  text-decoration: none;
+  color: var(--color-neutral-200);
+}
+
+.uubox {
+  width: 100%;
+  position: relative;
+  margin-top: 100px;
+}
+
+.uubox .box-1 {
+  position: absolute;
+  top: -80px;
+  z-index: -9;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  border: 4px solid var(--color-neutral-600);
+  border-radius: 12px;
+  background-color: var(--color-neutral-950);
+  display: flex;
+  justify-content: space-between;
+
+  padding: 15px 18px 0 18px;
+}
+
+.uubox .box-1 .dark {
+  font-size: 15px;
+  color: var(--color-neutral-400);
+}
+.uubox .box-1 .light {
+  font-size: 15px;
+  color: #fff;
+}
+.uubox .box-1 .head {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.uubox .box-1 .progress {
+  text-align: left;
+}
+
+.uubox .box-1 .next {
+  text-align: right;
+}
+
+.uubox .box-2 {
+  /* position: absolute;
+    top: 80px;
+    left: 0; */
+  margin-top: 80px;
+  width: 100%;
+  border: 4px solid var(--color-neutral-600);
+  border-radius: 12px;
+  background-color: var(--color-neutral-950);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 18px;
+}
+
+.uubox .box-2 .use {
+  padding: 14px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-neutral-800);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+.uubox .box-2 .use .dark {
+  font-size: 14px;
+  color: var(--color-neutral-300);
+}
+.uubox .box-2 .use .light {
+  font-size: 16px;
+  color: #fff;
+}
+
+/**This code is for loder**/
+.loader-box {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  color: var(--color-neutral-700);
+  white-space: pre;
+  font-size: 32px;
+  line-height: 1.2em;
+  height: 1.2em;
+  overflow: hidden;
+}
+.loader:before {
+  content: "Loading...\AgodnLai...\Aoiaglni...\ALiongad...\Agindola...\Analoidg...";
+  white-space: pre;
+  display: inline-block;
+  animation: l38 1s infinite steps(6);
+}
+
+@keyframes l38 {
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+/**Divider**/
+.divider {
+  width: 90%;
+  border-top: 1px dashed #6a6a6a;
+  margin: 20px auto 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+  nav .head {
+    font-size: 20px;
+  }
+  nav .border {
+    width: 50%;
+
+    border-top: 1px dashed #6a6a6a;
+  }
+  nav .creator {
+    gap: 5px;
+
+    font-size: 14px;
+  }
+  main .someinfo {
+    font-size: 15px;
+    color: var(--color-neutral-100);
+  }
+  main .someinfo .arrow {
+    margin: 0 8px;
+  }
+
+  main .word {
+    font-size: 36px;
+  }
+
+  main .meaning {
+    font-size: 15px;
+  }
+}

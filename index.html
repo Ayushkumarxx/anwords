@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>ANWORD BY AYUSH</title>
+  </head>
+  <body>
+    <!--- 
+      This site is created by Ayush
+      on 23rd feb 2025
+
+      what is the purpose of this site?
+      - This site is created for learning a new word every day.
+        This site uses two free API to generate a word randomly.
+        And Google Gemini API is used to get the meaning of the word and creative sentences to practice the word.
+      
+     - PURE CSS AND JS IS USED
+
+     JS Topics:
+     - DOM Manipulation
+     - Fetch API
+     - Async Await
+     - Local Storage
+     - Date Manipulation
+     - etc
+
+     CSS Topics:
+     - Flexbox
+     - CSS Variables
+     - Media Queries
+     - etc
+     
+     Created with ❤️ by Ayush
+    --->
+    <nav>
+      <div class="head">ANWORDS</div>
+      <div class="border"></div>
+      <div class="creator">
+        <p>CREATED</p>
+        <p>BY</p>
+        <p>AYUSH</p>
+      </div>
+    </nav>
+    <div class="loader-box" id="loader">
+      <div class="loader"></div>
+    </div>
+    <main id="main">
+      <div class="someinfo">
+        Today's word
+        <span class="arrow"><i class="fa-solid fa-angle-right"></i></span>
+        <span id="tdate">22/02/2025</span>
+      </div>
+      <div class="word" id="word">Rizz</div>
+      <div class="meaning" id="mean">~ Slang for romantic appeal or charm</div>
+      <div class="someButton">
+        <button><a href="" id="dict">Dictionary</a></button>
+        <button>
+          <a href="" id="google"
+            >Google <span><i class="fa-solid fa-arrow-pointer"></i></span
+          ></a>
+        </button>
+      </div>
+
+      <div class="uubox">
+        <div class="box-1">
+          <div class="progress">
+            <p class="dark">progress bar</p>
+            <p class="light">
+              <span class="dark"> days:</span> <span id="streak">0🔥</span>
+            </p>
+          </div>
+
+          <div class="next">
+            <p class="dark">Next Word In</p>
+            <p class="light" id="ndate">23/02/2025</p>
+          </div>
+        </div>
+        <div class="box-2" id="usebox">
+          <div class="use">She has more rizz than anyone I've ever met</div>
+          <div class="use">
+            I think I accidentally rizzed a girl at the mall
+          </div>
+          <div class="use">
+            They were surprised to see someone like her rizzing up a star
+            footballer
+          </div>
+          <div class="use">I'm about to rizz up Sarah</div>
+          <div class="use">
+            Dan's not that good looking, but he's got serious rizz
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="uubox">
+        <div class="box-1">
+          <div class="word-learned">
+            <p class="dark head">Word learned</p>
+            <p class="light count">Count: <span id="count">0</span></p>
+          </div>
+
+          <div class="next">
+            <p class="dark">Words learned</p>
+            <p class="light" id="ndate">this month</p>
+          </div>
+        </div>
+        <div class="box-2" id="learnBox">
+          <div class="use">
+            <p class="light" id="learnWord">Rizz</p>
+            <p class="dark" id="learnMean">
+              ~ Slang for romantic appeal or charm
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
