@@ -1,9 +1,11 @@
-const API_KEY = ""; // Replace with your actual Gemini API key
+const API_KEY = ""; //? Replace with your actual Gemini API key
+
 
 async function fetchData() {
   document.getElementById("main").style.display = "none";
   document.getElementById("loader").style.display = "flex";
- 
+
+  //? fetching all stored data
   const storedData = JSON.parse(localStorage.getItem("apiData") || "{}");
   let storedWord = JSON.parse(localStorage.getItem("wordData")) || [
     { word: "No Word", means: "Start learning a new word today!" },
@@ -14,7 +16,8 @@ async function fetchData() {
   };
   const storedMonth = localStorage.getItem("lastUpdatedMonth"); 
 
-
+  
+  //? calculating current month
   const today = new Date().toISOString().split("T")[0];
   const currentMonth = new Date().getMonth() + 1; 
 
@@ -22,14 +25,15 @@ async function fetchData() {
 
  
 
-  //? Check if the month has changed
+  //? Check if the month has changed to reset the stored words
   if (storedMonth !== currentMonth.toString()) {
     console.log("Month changed! Clearing stored words...");
     storedWord = []; // Reset stored words list
     localStorage.setItem("wordData", JSON.stringify(storedWord)); // Update localStorage
     localStorage.setItem("lastUpdatedMonth", currentMonth.toString()); // Update stored month
   }
-  //? if data is stored
+
+  //? if data is stored we will use it and not call the api
   if (storedData.date === today) {
     console.log("Using stored data:", storedData.data);
     updateUI(storedData.data, userStreak.streak, storedWord);
@@ -52,10 +56,8 @@ async function fetchData() {
     localStorage.setItem("streakData", JSON.stringify(userStreak));
   }
 
-  //? Fetch new data from Gemini API
+  //? Fetch new data from Gemini API and updating stored data, word and UI
   const geminiData = await getGeminiResponse();
-
-
 
   if (geminiData) {
     localStorage.setItem(
@@ -98,6 +100,7 @@ async function getRandomWord() {
 
 // Function to fetch data from Gemini API using the provided word
 async function getGeminiResponse() {
+  //? Fetching a random word
   const randomWord = await getRandomWord();
   if (!randomWord) return null; 
   console.log("Random word:", randomWord);
@@ -110,7 +113,8 @@ async function getGeminiResponse() {
     - Example Usage: Include 5 creative, relatable, or humorous sentences showcasing the word in context.
     - Focus on modern, conversational, or internet-inspired language that people can easily adopt in texts, chats, or casual talks.
     - DO NOT include markdown, code blocks, or explanations. Output only pure JSON.`;
-
+ 
+  //? Fetch data from Gemini API
   try {
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,
@@ -133,6 +137,7 @@ async function getGeminiResponse() {
     const data = await response.json();
     let geminiText = data.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
 
+    //? remove markdown from the response of gemni using regex
     const jsonMatch = geminiText.match(/```json\n([\s\S]*?)\n```/);
     if (jsonMatch) {
       geminiText = jsonMatch[1]; // Extract valid JSON
@@ -177,8 +182,9 @@ function updateUI(data, streakCount, storedWord) {
   document.getElementById("count").innerText = `${storedWord.length}`;
 
   const usebox = document.getElementById("usebox");
-  usebox.innerHTML = ""; // Clear previous examples
-
+  usebox.innerHTML = ""; //? Clear previous examples
+ 
+  //? Add new examples
   data.example_usage.forEach((example) => {
     const div = document.createElement("div");
     div.className = "use";
@@ -187,6 +193,8 @@ function updateUI(data, streakCount, storedWord) {
   });
   const learnBox = document.getElementById("learnBox");
   learnBox.innerHTML = "";
+
+  //? Adding all learned words 
   storedWord.forEach((entry) => {
     const div = document.createElement("div");
     const wordElement = document.createElement("p");
