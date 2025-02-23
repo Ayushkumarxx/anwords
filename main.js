@@ -1,4 +1,4 @@
-const API_KEY = "AIzaSyBtn5S8E308aI0KzOdHqymMtrzAcP65FTA"; // Replace with your actual Gemini API key
+const API_KEY = ""; // Replace with your actual Gemini API key
 
 async function fetchData() {
   document.getElementById("main").style.display = "none";
